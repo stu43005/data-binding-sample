@@ -1,14 +1,14 @@
 package com.sys1yagi.databindingsample.activities;
 
-import com.sys1yagi.databindingsample.R;
-import com.sys1yagi.databindingsample.databinding.ActivityMainBinding;
-
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+
+import com.sys1yagi.databindingsample.R;
+import com.sys1yagi.databindingsample.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter.add("Simple Binding");
         adapter.add("Auto Update");
         adapter.add("View With IDs");
+        adapter.add("Time");
 
         binding.setListener(this);
         binding.setAdapter(adapter);
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 return;
             case 2:
                 startActivity(ViewsWithIDsActivity.createIntent(this));
+                return;
+            case 3:
+                startActivity(TimeUpdateBindingActivity.createIntent(this));
                 return;
         }
     }
